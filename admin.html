@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Gallery Manager</title>
+  <link rel="stylesheet" href="./admin.css" >
+</head>
+<body>
+
+  <div class="container">
+    <h1>🖼️ Gallery Admin Panel</h1>
+
+    <div class="controls">
+      <button id="upload_widget" class="upload-btn">📸 Upload Image</button>
+      <button id="refresh_btn" class="refresh-btn">🔄 Refresh Gallery</button>
+    </div>
+
+    <div class="stats" id="stats">Loading...</div>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      Loading images...
+    </div>
+    
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+  <div class="status-indicator" id="statusIndicator">🔄 Connecting...</div>
+
+  <!-- Cloudinary Upload Widget -->
+  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  <!-- Admin Panel JavaScript -->
+  <script src="./admin.js" type="text/javascript"></script>
+</body>
+</html>
