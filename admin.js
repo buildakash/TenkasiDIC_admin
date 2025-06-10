@@ -72,7 +72,7 @@ async function deleteImage(public_id, filename) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-    const res = await fetch("http://localhost:4000/delete-image", {
+    const res = await fetch("https://tenkasidic-backend.onrender.com/delete-image", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ public_id }),
@@ -147,7 +147,7 @@ async function fetchAndRenderGallery() {
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
     console.log('🔄 Fetching gallery images...');
-    const response = await fetch('http://localhost:4000/gallery-images', {
+    const response = await fetch('https://tenkasidic-backend.onrender.com/gallery-images', {
       signal: controller.signal
     });
     
@@ -217,7 +217,7 @@ async function fetchAndRenderGallery() {
       gallery.innerHTML = `
         <div class="error-state">
           <h3>🔌 Connection Error</h3>
-          <p>Make sure your server is running on http://localhost:4000</p>
+          <p>Make sure your server is running on https://tenkasidic-backend.onrender.com</p>
           <p>Error: ${error.message}</p>
           <button onclick="fetchAndRenderGallery()" style="margin-top: 10px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Retry Connection</button>
         </div>
@@ -251,7 +251,7 @@ function startAutoRefresh() {
 // Health check function
 async function checkServerHealth() {
   try {
-    const response = await fetch('http://localhost:4000/health', {
+    const response = await fetch('https://tenkasidic-backend.onrender.com/health', {
       signal: AbortSignal.timeout(5000)
     });
     if (response.ok) {
@@ -284,7 +284,7 @@ function initializeAdminPanel() {
       gallery.innerHTML = `
         <div class="error-state">
           <h3>🔌 Server Not Available</h3>
-          <p>Please start your server on http://localhost:4000</p>
+          <p>Please start your server on https://tenkasidic-backend.onrender.com</p>
           <button onclick="location.reload()" style="margin-top: 10px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Refresh Page</button>
         </div>
       `;
